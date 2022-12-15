@@ -21,7 +21,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import jakarta.validation.Valid;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping
 public class PizzaController {
 	
 	@Autowired
@@ -30,7 +30,7 @@ public class PizzaController {
 	@Autowired
 	private IngredientService is;
 	
-	@GetMapping
+	@GetMapping("/")
 	public String index(Model model) {
 		
 		List<Pizza> pizza = ps.findAll();
