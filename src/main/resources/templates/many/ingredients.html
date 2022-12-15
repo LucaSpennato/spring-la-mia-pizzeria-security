@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h1>Many to Many</h1>
+	<button>
+		<a href="/ingredient/create">Add</a>
+	</button>
+	<ul>
+		<li th:each="i : ${ingr}" th:object="${i}">
+			[[*{id}]] - [[*{name}]]
+			<a th:href="@{/ingredient/edit/{id} (id = *{id})}">Edit</a>
+			<a th:href="@{/ingredient/delete/{id} (id = *{id})}">Delete</a>
+			<ul>
+				<li th:each="pizza : *{getPizzas()}" th:object="${pizza}">
+					[[*{id}]] - [[*{name}]]
+				</li>
+			</ul>
+		</li>
+	</ul>
+	
+	<h1>ManyToMany pizza side</h1>
+	<ul>
+		<li th:each="p : ${pizzas}" th:object="${p}">
+			[[*{id}]] - [[*{name}]]
+			<ul>
+				<li th:each="ingredient : *{getIngredients()}" th:object="${ingredient}">
+					[[*{id}]] - [[*{name}]]
+				</li>
+			</ul>
+		</li>
+	</ul>
+
+</body>
+</html>

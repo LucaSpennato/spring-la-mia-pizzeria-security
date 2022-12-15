@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h1>Drinks</h1>
+	<h3>Add a new drink: </h3>
+	<a href="/drinks/create"> <button>Add</button> </a>
+	<a href="/search">Search page</a>
+	<ul th:unless="${drinks.size() < 1}">
+		<li th:each="drink : ${drinks}" th:object="${drink}">
+			[[ *{id} ]] - [[*{name}]] - [[ *{price} ]] $
+			<div th:insert="frag :: list(drinks,*{id})"></div>
+		</li>
+	</ul>
+	
+	<h5 th:if="${drinks.size() < 1}">
+		No drinks available
+	</h5>
+	
+</body>
+</html>

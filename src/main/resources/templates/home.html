@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+		<h5>
+			Add a new pizza: 
+			<a href="pizza/create"><button>Add</button></a>
+		</h5>
+		<a href="/search">Search page</a>
+	<ul>
+		<li th:each="p : ${pizza}" th:object="${p}">
+			[[ *{getId()} ]] - [[*{name}]] - [[ *{price} ]]
+			<ul>
+				<li th:each="i : *{getIngredients()}" th:object="${i}">
+				[[*{id}]] - [[*{name}]]
+				</li>
+			</ul>
+			<div>
+				<a th:href="@{pizza/show/{id} (id = *{id})}">Show</a>
+				<a th:href="@{pizza/edit/{id} (id = *{getId()})}">Edit</a>
+				<a th:href="@{pizza/delete/{id} (id = *{getId()})}">Delete</a>
+			</div>
+		</li>
+	</ul>
+
+</body>
+</html>

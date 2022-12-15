@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<div th:if="${errors}">
+		<div>Errors:</div>
+		<ul>
+			<li th:each="e : ${errors}" th:object="${e}">
+				[[ *{defaultMessage} ]]
+			</li>
+		</ul>
+	</div>
+
+	<h1>Add a pizza</h1>
+	<form method="POST" action="/pizza/create">
+		
+		<label>Name</label>
+		<input type="text" name="name" th:field="${pizza.name}">
+		<br>
+		<label>Description</label>
+		<input name="description" th:field="${pizza.description}">
+		<label>Price</label>
+		<input type="number" name="price" th:field="${pizza.price}">
+		<br>
+		<div th:each="i : ${ingredients}" th:object="${i}">
+			<label>[[*{name}]]</label>
+			<input 
+			type="checkbox" 
+			name="ingredients"
+			th:value="*{id}"
+			th:field="${pizza.ingredients}"
+			>
+		</div>
+		
+		<button type="submit">add</button>
+	</form>
+
+</body>
+</html>

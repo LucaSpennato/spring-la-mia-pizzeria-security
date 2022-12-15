@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<div th:fragment="list(route, id)">
+		<a th:href="@{/{route}/edit/{id} (route = ${route}, id = ${id})}">edit</a>
+		<a th:href="@{/{route}/show/{id} (route = ${route}, id = ${id})}">show</a>
+		<a th:href="@{/{route}/delete/{id} (route = ${route}, id = ${id})}">delete</a>
+	</div>
+
+</body>
+</html>
