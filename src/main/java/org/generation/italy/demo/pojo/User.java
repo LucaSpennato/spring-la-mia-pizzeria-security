@@ -3,8 +3,6 @@ package org.generation.italy.demo.pojo;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.springframework.data.geo.Distance;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -42,9 +40,16 @@ public class User {
 	
 	public User(String username, String password, Role role) {
 		
+		setUsername(username);
+		setPassword(password);
+		addRole(role);
 	}
 	
 	public User(String username, String password, Set<Role> roles) {
+		
+		setUsername(username);
+		setPassword(password);
+		setRoles(roles);
 		
 	}
 
