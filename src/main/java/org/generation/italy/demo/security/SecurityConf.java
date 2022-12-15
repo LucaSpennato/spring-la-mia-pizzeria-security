@@ -18,10 +18,9 @@ public class SecurityConf {
 	public SecurityFilterChain getFilterChain(HttpSecurity http) throws Exception {
 		
 		http.authorizeHttpRequests()
-				.requestMatchers(HttpMethod.GET, "/user", "/user/**").hasAuthority("user")
-				.requestMatchers(HttpMethod.POST, "/user", "/user/**").hasAuthority("admin")
-				.requestMatchers("/admin", "/admin/**").hasAuthority("admin")
-				.requestMatchers("/useradmin", "/useradmin/**").hasAnyAuthority("user", "admin", "founder")	
+				.requestMatchers(HttpMethod.GET, "/pizza").hasAuthority("user")
+				.requestMatchers("/pizza", "/pizza/**").hasAuthority("admin")
+				.requestMatchers("/pizza", "/pizza/**").hasAnyAuthority("user", "admin", "founder")	
 				.requestMatchers("/**").permitAll()
 			.and().formLogin()
 			.and().logout()
