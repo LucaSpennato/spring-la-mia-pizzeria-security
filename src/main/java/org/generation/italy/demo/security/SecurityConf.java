@@ -20,7 +20,7 @@ public class SecurityConf {
 		http.authorizeHttpRequests()
 				.requestMatchers(HttpMethod.GET, "/pizza").hasAnyAuthority("user", "admin")
 				.requestMatchers("/pizza", "/pizza/show/*").hasAuthority("admin")
-				.requestMatchers("/*/founder/**", "/pizza/**").hasAnyAuthority("founder")	
+				.requestMatchers("/*/founder/**").hasAnyAuthority("founder")	
 				.requestMatchers("/**").permitAll()
 			.and().formLogin()
 			.and().logout()

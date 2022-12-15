@@ -38,7 +38,7 @@ public class PizzaController {
 		return "home";
 	}
 	
-	@GetMapping("/pizza/create")
+	@GetMapping("/pizza/founder/create")
 	public String createPizza(Model model) {
 		
 		Pizza pizza = new Pizza();
