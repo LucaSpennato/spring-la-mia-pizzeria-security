@@ -54,4 +54,9 @@ public class Role {
 		return obj.hashCode() == hashCode();
 	}
 	
+	@Override
+	public String toString() {
+		return  getId() + " - " + getName();
+	}
+	
 }

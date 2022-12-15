@@ -2,7 +2,9 @@ package org.generation.italy.demo;
 
 import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.generation.italy.demo.pojo.Drink;
 import org.generation.italy.demo.pojo.Ingredient;
@@ -173,7 +175,14 @@ public class SpringLaMiaPizzeriaCrudApplication implements CommandLineRunner{
 		
 		User s1 = new User("gianni", "{noop}giannipws", r1);
 		User s2 = new User("roberto", "{noop}robertopws", r2);
-		User s3 = new User("chiara", "{noop}chiarapws", r3);
+		
+		Set<Role> roles = new HashSet<>();
+		
+		roles.add(r1);
+		roles.add(r2);
+		roles.add(r3);
+		
+		User s3 = new User("chiara", "{noop}chiarapws", roles);
 		
 		userS.save(s1);
 		userS.save(s2);
